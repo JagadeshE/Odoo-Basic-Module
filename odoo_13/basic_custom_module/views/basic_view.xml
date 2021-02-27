@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="basic_tree_view" model="ir.ui.view">
+        <field name="name">basic.tree</field>
+        <field name="model">basic</field>
+        <field name="arch" type="xml">
+            <tree string="Person Detail">
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="gender"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="basic_form_view" model="ir.ui.view">
+        <field name="name">basic.form</field>
+        <field name="model">basic</field>
+        <field name="arch" type="xml">
+            <form string="Person Detail">
+                <sheet>
+                    <group>
+                         <group name="parson_detail_1">
+                             <field name="name"/>
+                             <field name="age"/>
+                             <field name="gender"/>
+                             <field name="birthdate"/>
+                         </group>
+                         <group name="person_detail_2">
+                             <field name="mobile" placeholder="+12 3456789101..."/>
+                             <field name="phone" placeholder="044 2222 2222..."/>
+                             <field name="email" placeholder="ab@mail.com"/>
+                         </group>
+                     </group>
+					<notebook>
+						<page string="ABOUT US" name="about_us">
+							<group>
+							    <field name="about"/>
+							</group>
+						</page>
+					</notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="basic_view_search" model="ir.ui.view">
+        <field name="name">basic.view.search</field>
+        <field name="model">basic</field>
+        <field name="arch" type="xml">
+            <search string="Search Person">
+                <field name="name"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="basic_form_action" model="ir.actions.act_window">
+        <field name="name">Persons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">basic</field>
+        <field name="view_id" ref="basic_tree_view"/>
+        <field name="search_view_id" ref="basic_view_search"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Add a new person
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="basic_menu_root" name="Persons Detail" sequence="4" web_icon="static/description/icon.png"/>
+
+    <menuitem id="basic_menu" name="Person Details" action="basic_form_action" parent="basic_menu_root" 
+                                 sequence="2"/>
+
+</odoo>

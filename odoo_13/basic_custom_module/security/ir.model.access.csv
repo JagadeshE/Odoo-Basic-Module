@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_basic_module_manger,basic_module_manager,model_basic,basic_custom_module_group,1,1,1,1
